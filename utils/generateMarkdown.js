@@ -58,15 +58,10 @@ function renderLicenseSection(license) {
     return ``;
   }
   
-  const licenseBadge = renderLicenseBadge(license);
   const licenseLink = renderLicenseLink(license);
       return `
-## License ${licenseBadge}
-
-This project is licensed under the ${license} License. 
-For more information about this license, please visit ${licenseLink}
-
-`
+  This project is licensed under the ${license} License. 
+  For more information about this license, please visit ${licenseLink}`
 }
 
 // function to generate markdown for README.md
@@ -98,6 +93,7 @@ function generateMarkdown(data) {
   ## Tests 
   ${data.test}
 
+  ## License
   ${renderLicenseSection(data.license)}
 
   ## Questions
