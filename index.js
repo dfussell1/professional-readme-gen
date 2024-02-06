@@ -13,7 +13,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please add a short description of your application'
+        message: 'Please write a short description of your application.'
     },
     {
         type: 'input',
@@ -43,7 +43,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'GitHub',
+        name: 'github',
         message: 'What is your GitHub username?'
     },
     {
@@ -56,19 +56,17 @@ const questions = [
 function init() {
     inquirer
         .prompt(questions)
-        .then((answers) => {
-            const readMeContent = generateMarkdown(answers);
-            writeToFile('README.md', readMeContent);
+        .then((data) => {
+            const readMeContent = generateMarkdown(data);
+            writeToFile('./generated/README.md', readMeContent);
         });
 }
-// TODO: Create a function to write README file
+
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => 
     err ? console.log(err) : console.log('README.md successfully created!')
     );
 }
-
-// TODO: Create a function to initialize app
 
 // Function call to initialize app
 init();
