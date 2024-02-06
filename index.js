@@ -58,7 +58,7 @@ function init() {
         .prompt(questions)
         .then((data) => {
             const readMeContent = generateMarkdown(data);
-            writeToFile('./generated/README.md', readMeContent);
+            writeToFile('./assets/generated/README.md', readMeContent);
         });
 }
 
